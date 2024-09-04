@@ -1,0 +1,161 @@
+/** Not allowed to change this initial CSS code **/
+body {
+	background: url(../img/12_col.gif) center top repeat-y;
+	background-size: 90%;
+}
+/*************************************************/
+/* General styling for CSS grid containers */
+
+
+#grid-container {
+	display: grid;
+	margin: 10px auto;
+	width: 89%;
+	grid-template-columns: repeat(12, 1fr);
+	gap: 10px;
+	 /* Some rules are required for the grid-template-areas to work */
+	/* 
+		1. All rows need to have equal amount of values
+		2. Need to manage/work with all children, in the grid-container
+		3. Need to declare grid-area in all children, to be affected of grid-template-areas
+		4. May only create shapes with 4 corners, such as squears and rectangels
+	*/
+	grid-template-areas:
+	 "header header header header header header header header header header header header"
+	 "box1 box1 box2 box2 box2 box2 box2 box2 box2 box2 box3 box3"
+	 "content content content content content content content content content sidebar sidebar sidebar"
+     "footer footer footer footer footer footer footer footer footer footer footer footer"
+	 
+	 ;
+
+}
+
+header,
+section,
+main,
+aside,
+footer {
+	border: 1px solid black;
+	min-height: 200px;
+	
+}
+
+
+
+header {
+	grid-area: header;
+}
+
+#box1 {
+	grid-area: box1;
+}
+
+#box2 {
+    grid-area: box2;
+}
+
+#box3 {
+    grid-area: box3
+}
+
+main {
+    grid-area: content;
+}
+
+aside {
+    grid-area: sidebar;
+
+}
+
+footer {
+    grid-area: footer;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+}
+
+#footer1,
+#footer2,
+#footer3,
+#footer4 {
+    border: 1px solid black;
+	margin: 10px;
+}
+
+
+/* 
+Layouten skall anpassas efter olika enheter med brytpunkter för följande:
+- Breda desktopskärmar: större än 1200px
+- Mindre desktopskärmar: mellan 1200px och 960px
+- Tablets såsom Ipad: mellan 960px och 768px
+- Mobiltelefoner: mindre än 768px */
+
+/* - Mindre desktopskärmar: mellan 1200px och 960px */
+@media screen and (min-width:960px ) and ( max-width: 1200px){
+	#grid-container {
+		grid-template-areas:
+	 "header header header header header header header header header header header header"
+	 "box1 box1 box1 box2 box2 box2 box2 box2 box2 box3 box3 box3"
+	 "content content content content content content content content sidebar sidebar sidebar sidebar"
+     "footer footer footer footer footer footer footer footer footer footer footer footer"
+	 
+	 ;
+	}
+	
+}
+
+/* - Tablets såsom Ipad: mellan 960px och 768px */
+@media screen and (min-width:768px ) and ( max-width: 960px){
+	
+	#grid-container {
+	grid-template-areas:
+	 "header header header header header header header header header header header header"
+	 "box1 box1 box1 box1 box2 box2 box2 box2 box3 box3 box3 box3"
+	 "content content content content content content sidebar sidebar sidebar sidebar sidebar sidebar"
+     "footer footer footer footer footer footer footer footer footer footer footer footer"
+	 
+	 ;
+	}
+
+	footer {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	#footer1,
+	#footer2,
+	#footer3,
+	#footer4 {
+		height: 150px;
+	}
+}
+
+
+/* - Mobiltelefoner: mindre än 768px */
+@media screen and ( max-width: 768px){
+	
+	#grid-container {
+		grid-template-areas:
+		"header header header header header header header header header header header header"
+		"box1 box1 box1 box1 box1 box1 box1 box1 box1 box1 box1 box1"
+		"box2 box2 box2 box2 box2 box2 box2 box2 box2 box2 box2 box2"
+		"box3 box3 box3 box3 box3 box3 box3 box3 box3 box3 box3 box3"
+		"content content content content content content content content content content content content"
+		"sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar"
+		"footer footer footer footer footer footer footer footer footer footer footer footer"
+		
+		
+		;
+	}
+
+	footer {
+	
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+	#footer1,
+	#footer2,
+	#footer3,
+	#footer4 {
+		height: 150px;
+	}
+	
+}

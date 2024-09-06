@@ -44,6 +44,11 @@ footer {
 
 header {
 	grid-area: header;
+	min-height: 100px !important;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
 }
 
 #box1 {
@@ -60,10 +65,15 @@ header {
 
 main {
     grid-area: content;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 }
 
 aside {
     grid-area: sidebar;
+	display: flex;
+	flex-direction: column;
 
 }
 
@@ -81,6 +91,21 @@ footer {
 	margin: 10px;
 }
 
+.button{
+	max-height: 30px;
+	max-widht: 40 px;
+	margin: 20px;
+}
+
+#button4 {
+	margin-left: auto;
+}
+
+.content_section{
+	max-height: 100px;
+	min-width: 250px;
+	margin: 10px;
+}
 
 /* 
 Layouten skall anpassas efter olika enheter med brytpunkter för följande:
